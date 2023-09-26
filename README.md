@@ -36,7 +36,7 @@ This tutorial guides the implementation of Active Directory within Microsoft Azu
 <h2>Deployment and Set Up</h2>
 
 <p>
-<img src="https://i.imgur.com/EZRqL12.png"/>
+<img src="https://i.imgur.com/VD2kiav.png"/>
 </p>
 <p>
 First, we'll create the resources needed for this tutorial. I will be naming the resource group "AD-RG", the virtual machine "DC-1" and then select the Windows Server 2022. Make sure the size is set to be 2 VCPUs and then create the VM.
@@ -44,7 +44,7 @@ First, we'll create the resources needed for this tutorial. I will be naming the
 <br />
 
 <p>
-<img src="https://i.imgur.com/gn2dr6T.png"/>
+<img src="https://i.imgur.com/HZpF7GH.png"/>
 </p>
 <p>
 Secondly, we'll create the Windows 10 VM named "Client-1". We must ensure that it is made under the same resource group, region, and have the same size VCPUs of the first VM. It will also need to be in the same Vnet as "DC-1".
@@ -52,7 +52,7 @@ Secondly, we'll create the Windows 10 VM named "Client-1". We must ensure that i
 <br />
 
 <p>
-<img src="https://i.imgur.com/W9MwKqG.png"/>
+<img src="https://i.imgur.com/OrB49Ps.png"/>
 </p>
 <p>
 Now go into DC-1 and click into the NIC (network interface card) as shown above.
@@ -60,7 +60,7 @@ Now go into DC-1 and click into the NIC (network interface card) as shown above.
 <br />
 
 <p>
-<img src="https://i.imgur.com/jcTP1xX.png"/>
+<img src="https://i.imgur.com/hfeg2Gk.png"/>
 </p>
 <p>
 Then click into "IP Configurations" and click on "ipconfig1".
@@ -68,7 +68,7 @@ Then click into "IP Configurations" and click on "ipconfig1".
 <br />
 
 <p>
-<img src="https://i.imgur.com/nLi8mKo.png"/>
+<img src="https://i.imgur.com/O551ROF.png"/>
 </p>
 <p>
 Set the IP to static and then click save in the top left.
@@ -140,7 +140,7 @@ Now you can make a DSRM password and hit next until you are able to install. Thi
 <br />
 
 <p>
-<img src="https://i.imgur.com/OjoxVpx.png"/>
+<img src="https://i.imgur.com/vqe4TNJ.png"/>
 </p>
 <p>
 Next, we'll connect back into "DC-1" with RDC. This time we will use a different account and type the user as "mydomain.com\labuser" or the username that you created when you made "DC-1" The password will be the same.
