@@ -52,7 +52,7 @@ Secondly, we'll create the Windows 10 VM named "Client-1". We must ensure that i
 <br />
 
 <p>
-<img src="https://i.imgur.com/OrB49Ps.png"/>
+<img src="https://i.imgur.com/Bn2Bgdd.png"/>
 </p>
 <p>
 Now go into DC-1 and click into the NIC (network interface card) as shown above.
@@ -60,7 +60,7 @@ Now go into DC-1 and click into the NIC (network interface card) as shown above.
 <br />
 
 <p>
-<img src="https://i.imgur.com/hfeg2Gk.png"/>
+<img src="https://i.imgur.com/i3CJkVE.png"/>
 </p>
 <p>
 Then click into "IP Configurations" and click on "ipconfig1".
@@ -68,7 +68,7 @@ Then click into "IP Configurations" and click on "ipconfig1".
 <br />
 
 <p>
-<img src="https://i.imgur.com/O551ROF.png"/>
+<img src="https://i.imgur.com/yaZ3OMk.png"/>
 </p>
 <p>
 Set the IP to static and then click save in the top left.
@@ -140,7 +140,7 @@ Now you can make a DSRM password and hit next until you are able to install. Thi
 <br />
 
 <p>
-<img src="https://i.imgur.com/vqe4TNJ.png"/>
+<img src="https://i.imgur.com/a5E0f6r.png"/>
 </p>
 <p>
 Next, we'll connect back into "DC-1" with RDC. This time we will use a different account and type the user as "mydomain.com\labuser" or the username that you created when you made "DC-1" The password will be the same.
