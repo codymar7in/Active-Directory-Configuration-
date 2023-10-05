@@ -36,7 +36,7 @@ This tutorial guides the implementation of Active Directory within Microsoft Azu
 <h2>Deployment and Set Up</h2>
 
 <p>
-<img src="https://i.imgur.com/VD2kiav.png"/>
+<img src="https://i.imgur.com/p14FRTc.png"/>
 </p>
 <p>
 First, we'll create the resources needed for this tutorial. I will be naming the resource group "AD-RG", the virtual machine "DC-1" and then select the Windows Server 2022. Make sure the size is set to be 2 VCPUs and then create the VM.
@@ -44,7 +44,7 @@ First, we'll create the resources needed for this tutorial. I will be naming the
 <br />
 
 <p>
-<img src="https://i.imgur.com/HZpF7GH.png"/>
+<img src="https://i.imgur.com/dp4eYP5.png"/>
 </p>
 <p>
 Secondly, we'll create the Windows 10 VM named "Client-1". We must ensure that it is made under the same resource group, region, and have the same size VCPUs of the first VM. It will also need to be in the same Vnet as "DC-1".
@@ -52,7 +52,7 @@ Secondly, we'll create the Windows 10 VM named "Client-1". We must ensure that i
 <br />
 
 <p>
-<img src="https://i.imgur.com/Bn2Bgdd.png"/>
+<img src="https://i.imgur.com/eWYjVuc.png"/>
 </p>
 <p>
 Now go into DC-1 and click into the NIC (network interface card) as shown above.
@@ -60,7 +60,7 @@ Now go into DC-1 and click into the NIC (network interface card) as shown above.
 <br />
 
 <p>
-<img src="https://i.imgur.com/i3CJkVE.png"/>
+<img src="https://i.imgur.com/1BAgy2q.png"/>
 </p>
 <p>
 Then click into "IP Configurations" and click on "ipconfig1".
@@ -68,7 +68,7 @@ Then click into "IP Configurations" and click on "ipconfig1".
 <br />
 
 <p>
-<img src="https://i.imgur.com/yaZ3OMk.png"/>
+<img src="https://i.imgur.com/dQ5OEpW.png"/>
 </p>
 <p>
 Set the IP to static and then click save in the top left.
@@ -76,7 +76,7 @@ Set the IP to static and then click save in the top left.
 <br />
 
 <p>
-<img src="https://i.imgur.com/wl7ZerE.png"/>
+<img src="https://i.imgur.com/eRMMQo1.png"/>
 </p>
 <p>
 Then login into "Client-1" with RMC and continously ping "DC-1" private IP address with "ping -t". Observe how the request is being timed out and keep this window up.
@@ -84,7 +84,7 @@ Then login into "Client-1" with RMC and continously ping "DC-1" private IP addre
 <br />
 
 <p>
-<img src="https://i.imgur.com/DlKRtdw.png"/>
+<img src="https://i.imgur.com/p32Fbkw.png"/>
 </p>
 <p>
 After, log into "DC-1" and open Windows Defender Firewall with Advanced Security by typing it in the search bar.
@@ -92,7 +92,7 @@ After, log into "DC-1" and open Windows Defender Firewall with Advanced Security
 <br />
 
 <p>
-<img src="https://i.imgur.com/3ulEvHg.png"/>
+<img src="https://i.imgur.com/r8Ha3kF.png"/>
 </p>
 <p>
 Then we'll go to inbound rules, sort it by protocol and then enable all the rules with ICMPv4 protocol. This will enable the ICMPv4 traffic that the ping command uses.
@@ -100,7 +100,7 @@ Then we'll go to inbound rules, sort it by protocol and then enable all the rule
 <br />
 
 <p>
-<img src="https://i.imgur.com/xyCKmdr.png"/>
+<img src="https://i.imgur.com/MM6D6we.png"/>
 </p>
 <p>
 If we return back to "Client-1", we will notice that we are now getting replies back. To stop the ping you can press "Ctrl + C".
@@ -108,7 +108,7 @@ If we return back to "Client-1", we will notice that we are now getting replies 
 <br />
 
 <p>
-<img src="https://i.imgur.com/9hKoKlH.png"/>
+<img src="https://i.imgur.com/V7OJEXt.png"/>
 </p>
 <p>
 Finally, we will install Active Directory inside of DC-1. Open up DC-1 and click into "Sever Manager". The first thing we will click is "Add roles and features", press next until we get into "Server Roles", check the box that says "Active Directory Domain Services", click "Add Features" and then continue to click next until you can install.
@@ -116,7 +116,7 @@ Finally, we will install Active Directory inside of DC-1. Open up DC-1 and click
 <br />
 
 <p>
-<img src="https://i.imgur.com/vAwcHG1.png"/>
+<img src="https://i.imgur.com/S4wfeU7.png"/>
 </p>
 <p>
 Next, we'll promote the DC-1 as a domain controller. To do this we'll click on the flag with the caution sign on the top right of "Server Manager" and press "Promote this server to a domain controller".
@@ -124,7 +124,7 @@ Next, we'll promote the DC-1 as a domain controller. To do this we'll click on t
 <br />
 
 <p>
-<img src="https://i.imgur.com/Cn367WC.png"/>
+<img src="https://i.imgur.com/FAoWuyu.png"/>
 </p>
 <p>
 Next, check "Add a new forest" name it to anything you want. In this tutorial we will use "mydomain.com" and hit next.
@@ -132,7 +132,7 @@ Next, check "Add a new forest" name it to anything you want. In this tutorial we
 <br />
 
 <p>
-<img src="https://i.imgur.com/YoKCsr1.png"/>
+<img src="https://i.imgur.com/lGkKBKx.png"/>
 </p>
 <p>
 Now you can make a DSRM password and hit next until you are able to install. This will restart the virtual machine after it is finished.
@@ -140,7 +140,7 @@ Now you can make a DSRM password and hit next until you are able to install. Thi
 <br />
 
 <p>
-<img src="https://i.imgur.com/a5E0f6r.png"/>
+<img src="https://i.imgur.com/BNaS4U8.png"/>
 </p>
 <p>
 Next, we'll connect back into "DC-1" with RDC. This time we will use a different account and type the user as "mydomain.com\labuser" or the username that you created when you made "DC-1" The password will be the same.
@@ -148,7 +148,7 @@ Next, we'll connect back into "DC-1" with RDC. This time we will use a different
 <br />
 
 <p>
-<img src="https://i.imgur.com/IqPpMGP.png"/>
+<img src="https://i.imgur.com/WigUhul.png"/>
 </p>
 <p>
 Now we'll go to the server manager and then go to tools. Press "Active Directory Users and Computers" or ADUC.
@@ -156,7 +156,7 @@ Now we'll go to the server manager and then go to tools. Press "Active Directory
 <br />
 
 <p>
-<img src="https://i.imgur.com/iE9ClSe.png"/>
+<img src="https://i.imgur.com/i43uWce.png"/>
 </p>
 <p>
 Next create two new "Organizational Units" by clicking on mydomain and right clicking the white space. The first unit will be named "_EMPLOYEES" and the second one "_ADMINS".
@@ -164,7 +164,7 @@ Next create two new "Organizational Units" by clicking on mydomain and right cli
 <br />
 
 <p>
-<img src="https://i.imgur.com/qh93Put.png"/>
+<img src="https://i.imgur.com/gwWNdCc.png"/>
 </p>
 <p>
 After, we will create a new admin user by clicking to top button with a person and star on it. Name the user Jane Doe and the login username to "jane_admin". In the next screen, uncheck "User must cahnge password at next logon" then hit next to create the user.
@@ -172,7 +172,7 @@ After, we will create a new admin user by clicking to top button with a person a
 <br />
 
 <p>
-<img src="https://i.imgur.com/kjVrg2x.png"/>
+<img src="https://i.imgur.com/94VdfZZ.png"/>
 </p>
 <p>
 Next, add Jane Doe to the group "Domain Admins". To perfom this step, right click on Jane > Properties > Member Of > Add > type "Domain" in the object box > Check Names > click "Domain Admins" > click Ok and then apply. After this, you will logout and log on to DC-1 as jane_admin.
@@ -181,7 +181,7 @@ Next, add Jane Doe to the group "Domain Admins". To perfom this step, right clic
 <br />
 
 <p>
-<img src="https://i.imgur.com/FowKbmg.png"/>
+<img src="https://i.imgur.com/STzrbqa.png"/>
 </p>
 <p>
 Now set Client-1's DNS server to the private IP of DC-1. To do this, head back to Client-1's nertworking on the Azure portal and click on the NIC. Click into DNS servers and add the private IP of DC-1 into the list and press save. Restart Client-1 by going back to the VM on Azure and press restart button at the top. Log back in after restarting.
@@ -189,7 +189,7 @@ Now set Client-1's DNS server to the private IP of DC-1. To do this, head back t
 <br />
 
 <p>
-<img src="https://i.imgur.com/IP7qWkL.png"/>
+<img src="https://i.imgur.com/Td5WTVf.png"/>
 </p>
 <p>
 When inside Client-1, go to Settings > About > Rename this PC(Advanced) > change domain > type mydomain.com > use mydomain.com\jane_admin > then press ok to make the changes apply. Restart Client-1 and log into jane_admin.
@@ -197,7 +197,7 @@ When inside Client-1, go to Settings > About > Rename this PC(Advanced) > change
 <br />
 
 <p>
-<img src="https://i.imgur.com/AHOJ62I.png"/>
+<img src="https://i.imgur.com/JreB3FV.png"/>
 </p>
 <p>
 After logging in, go to Remote Desktop Settings and click "Select users that can remotely access this PC" > add > type "domain users" in the object box > check names and then hit OK. This will allow all domain users to connect to Client-1.
@@ -205,7 +205,7 @@ After logging in, go to Remote Desktop Settings and click "Select users that can
 <br />
 
 <p>
-<img src="https://i.imgur.com/enrGRgz.png"/>
+<img src="https://i.imgur.com/ZxtMnsR.png"/>
 </p>
 <p>
 Head back to DC-1 and into ADUC in the server manager application. Check to see if Client-1 is listed by clicking into mydomain and computers where you should see Client-1.
@@ -213,7 +213,7 @@ Head back to DC-1 and into ADUC in the server manager application. Check to see 
 <br />
 
 <p>
-<img src="https://i.imgur.com/4mTbIfW.png"/>
+<img src="https://i.imgur.com/ENYg8F0.png"/>
 </p>
 <p>
 While in DC-1, open "Windows Powershell ISE (x86)" as admin.
@@ -221,7 +221,7 @@ While in DC-1, open "Windows Powershell ISE (x86)" as admin.
 <br />
 
 <p>
-<img src="https://i.imgur.com/JehSLdN.png"/>
+<img src="https://i.imgur.com/sX7oUvb.png"/>
 </p>
 <p>
 Finally, create 10,000 users with a randomly generated names by copying the powershell script linked below. To do this we will create a new script by pressing the button at the top left > paste script > and then hit the green run script button.
