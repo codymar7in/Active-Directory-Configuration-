@@ -5,11 +5,6 @@
 <h1>Active Directory Deployed in Azure</h1>
 This tutorial guides the implementation of Active Directory within Microsoft Azure Virtual Machines. For this tutorial to be completed, you must finish the prerequisites first and come back to this one as it builds upon those.  <br />
 
-<h2>Prerequisites</h2>
-
-- [Setup a Subscription and a Resource in Azure for Beginner Labs](https://github.com/bvongpradith/setup-azure-sub-and-resource)
-- [Create Virtual Machines Within Azure and Observe The Network Topology](https://github.com/bvongpradith/creating-azure-vm)
-
 <h2>Technologies and Enviroments Used</h2>
 
 - Microsoft Azure
